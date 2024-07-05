@@ -1,7 +1,7 @@
 import SwiftUI
 
 // Background color setup to fill entire safe area, specifically renamed to avoid conflicts
-struct NewBackgroundColorView: View {
+struct RigidBackgroundColorView: View {
     var body: some View {
         Color.black
             .ignoresSafeArea()
@@ -9,7 +9,7 @@ struct NewBackgroundColorView: View {
 }
 
 // Image displayed below the AppBar, further simplified without any interactive elements
-struct NewHomePageImage: View {
+struct RigidHomePageImage: View {
     var body: some View {
         Image("home_page")
             .resizable()
@@ -18,19 +18,19 @@ struct NewHomePageImage: View {
 }
 
 // OhmsLawView using the simplified NewHomePageImage
-struct NewOhmsLawView: View {
+struct NewRigidView: View {
     var body: some View {
         ZStack {
-            NewBackgroundColorView()
-            NewHomePageImage()
+            RigidBackgroundColorView()
+            RigidHomePageImage()
         }
     }
 }
 
 // Preview for OhmsLawView
-struct NewOhmsLawView_Previews: PreviewProvider {
+struct NewRigidView_Previews: PreviewProvider {
     static var previews: some View {
-        NewOhmsLawView()
+        NewRigidView()
     }
 }
 

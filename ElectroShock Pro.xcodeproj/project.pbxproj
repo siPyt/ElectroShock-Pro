@@ -13,6 +13,10 @@
 		E3558D512C03EB0400AEF69C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3558D502C03EB0400AEF69C /* Preview Assets.xcassets */; };
 		E35879402C3862AA000AA9D9 /* emtFillMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358793F2C3862AA000AA9D9 /* emtFillMap.swift */; };
 		E35879422C3865E5000AA9D9 /* ohmsLawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35879412C3865E5000AA9D9 /* ohmsLawView.swift */; };
+		E35879442C3869F2000AA9D9 /* rigidFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35879432C3869F2000AA9D9 /* rigidFillView.swift */; };
+		E35879462C386A4A000AA9D9 /* motorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35879452C386A4A000AA9D9 /* motorsView.swift */; };
+		E35879482C386A80000AA9D9 /* wireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35879472C386A80000AA9D9 /* wireView.swift */; };
+		E358794A2C386AAD000AA9D9 /* xfmrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35879492C386AAD000AA9D9 /* xfmrView.swift */; };
 		E38501082C373D8500A7F661 /* emt_fill_map.txt in Resources */ = {isa = PBXBuildFile; fileRef = E38501072C373D8500A7F661 /* emt_fill_map.txt */; };
 		E3B467622C30DE8400BD6AA9 /* conduitFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B467612C30DE8400BD6AA9 /* conduitFillView.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +29,10 @@
 		E3558D502C03EB0400AEF69C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E358793F2C3862AA000AA9D9 /* emtFillMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emtFillMap.swift; sourceTree = "<group>"; };
 		E35879412C3865E5000AA9D9 /* ohmsLawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ohmsLawView.swift; sourceTree = "<group>"; };
+		E35879432C3869F2000AA9D9 /* rigidFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rigidFillView.swift; sourceTree = "<group>"; };
+		E35879452C386A4A000AA9D9 /* motorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = motorsView.swift; sourceTree = "<group>"; };
+		E35879472C386A80000AA9D9 /* wireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wireView.swift; sourceTree = "<group>"; };
+		E35879492C386AAD000AA9D9 /* xfmrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xfmrView.swift; sourceTree = "<group>"; };
 		E38501072C373D8500A7F661 /* emt_fill_map.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = emt_fill_map.txt; sourceTree = "<group>"; };
 		E3B467612C30DE8400BD6AA9 /* conduitFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conduitFillView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +75,10 @@
 				E358793F2C3862AA000AA9D9 /* emtFillMap.swift */,
 				E38501072C373D8500A7F661 /* emt_fill_map.txt */,
 				E35879412C3865E5000AA9D9 /* ohmsLawView.swift */,
+				E35879432C3869F2000AA9D9 /* rigidFillView.swift */,
+				E35879452C386A4A000AA9D9 /* motorsView.swift */,
+				E35879472C386A80000AA9D9 /* wireView.swift */,
+				E35879492C386AAD000AA9D9 /* xfmrView.swift */,
 			);
 			path = "ElectroShock Pro";
 			sourceTree = "<group>";
@@ -151,8 +163,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3558D4C2C03EB0100AEF69C /* ContentView.swift in Sources */,
+				E35879442C3869F2000AA9D9 /* rigidFillView.swift in Sources */,
+				E358794A2C386AAD000AA9D9 /* xfmrView.swift in Sources */,
 				E3558D4A2C03EB0100AEF69C /* ElectroShock_ProApp.swift in Sources */,
+				E35879482C386A80000AA9D9 /* wireView.swift in Sources */,
 				E35879422C3865E5000AA9D9 /* ohmsLawView.swift in Sources */,
+				E35879462C386A4A000AA9D9 /* motorsView.swift in Sources */,
 				E35879402C3862AA000AA9D9 /* emtFillMap.swift in Sources */,
 				E3B467622C30DE8400BD6AA9 /* conduitFillView.swift in Sources */,
 			);
