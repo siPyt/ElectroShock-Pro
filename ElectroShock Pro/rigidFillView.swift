@@ -60,14 +60,28 @@ struct RigidHomePageImage: View {
                 .resizable()
                 .scaledToFit()
             
-            VStack(alignment: .leading, spacing: 10) {
-                ForEach(conduitOptions, id: \.1) { option in
-                    Button(option.0) {
-                        selectConduitType(option.1)
+            HStack {
+                VStack(alignment: .leading, spacing: 10) {
+                    ForEach(conduitOptions[0..<5], id: \.1) { option in
+                        Button(option.0) {
+                            selectConduitType(option.1)
+                        }
+                        .buttonStyle(RigidButtonStyle())
                     }
-                    .buttonStyle(RigidButtonStyle())
                 }
+                VStack(alignment: .leading, spacing: 10) {
+                    ForEach(conduitOptions[5...], id: \.1) { option in
+                        Button(option.0) {
+                            selectConduitType(option.1)
+                        }
+                        .buttonStyle(RigidButtonStyle())
+                    }
+                }
+            }
+            .padding()
 
+            VStack {
+                Spacer()
                 TextField("Enter wire size FIRST", text: $conduitSize)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
@@ -76,10 +90,7 @@ struct RigidHomePageImage: View {
                     .font(.title)
                     .foregroundColor(Color.green)
                     .padding()
-                
-                Spacer()
             }
-            .padding()
         }
     }
 }
@@ -174,5 +185,4 @@ struct RigidFillView_Previews: PreviewProvider {
         RigidFillView()
     }
 }
-
 
