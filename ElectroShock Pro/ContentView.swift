@@ -53,8 +53,8 @@ struct AppBarContent: View {
             MenuButton()
             Spacer() // This spacer will push the AppBarTitle to the center
             AppBarTitle()
-            Spacer()
             Spacer() // Ensures the title stays centered
+            Spacer()
         }
     }
 }
@@ -92,16 +92,16 @@ struct HomePageImage: View {
             // Overlaying buttons on the image with unique text and navigation
             VStack(spacing: 10) {
                 HStack(spacing: 10) {
-                    ButtonOverlay(text: "Ohms Law", destination: AnyView(OhmsLawView()))
-                    ButtonOverlay(text: "Motors", destination: AnyView(MotorsView()))
+                    ButtonOverlay(text: "Ohms Law", destination: AnyView(NewOhmsLawView()))
+                    ButtonOverlay(text: "Motors", destination: AnyView(NewMotorsView()))
                 }
                 HStack(spacing: 10) {
-                    ButtonOverlay(text: "Wire", destination: AnyView(WireView()))
+                    ButtonOverlay(text: "Wire", destination: AnyView(NewWireView()))
                     ButtonOverlay(text: "EMT", destination: AnyView(ConduitFillView()))
                 }
                 HStack(spacing: 10) {
-                    ButtonOverlay(text: "Rigid", destination: AnyView(RigidView()))
-                    ButtonOverlay(text: "XFMR", destination: AnyView(XFMRView()))
+                    ButtonOverlay(text: "Rigid", destination: AnyView(NewRigidView()))
+                    ButtonOverlay(text: "XFMR", destination: AnyView(NewXfmrView()))
                 }
             }
         }
@@ -123,22 +123,14 @@ struct ButtonOverlay: View {
     }
 }
 
-// Define each destination view for the buttons
-struct OhmsLawView: View { var body: some View { Text("Details about Ohms Law") } }
-struct MotorsView: View { var body: some View { Text("Details about Motors") } }
-struct WireView: View { var body: some View { Text("Details about Wire") } }
-struct EMTView: View { var body: some View { Text("Details about EMT") } }
-struct RigidView: View { var body: some View { Text("Details about Rigid") } }
-struct XFMRView: View { var body: some View { Text("Details about XFMR") } }
-
-// Assuming you have defined the ConduitFillView somewhere in your project
-
 // Preview for ContentView
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+
+
 
 
 
