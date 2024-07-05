@@ -39,7 +39,7 @@ struct RigidHomePageImage: View {
         ("Rigid, 3-1/2\"", 9),
         ("Rigid, 4\"", 10)
     ]
-
+    
     func selectConduitType(_ type: Int) {
         conduitType = type
         calculateConduitFill()
@@ -85,6 +85,12 @@ struct RigidHomePageImage: View {
                 TextField("Enter wire size FIRST", text: $conduitSize)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
+
+                Button("Clear") {
+                    self.conduitSize = ""
+                }
+                .buttonStyle(RigidButtonStyle())
+                .padding()
 
                 Text(displayMessage)
                     .font(.title)
