@@ -8,6 +8,19 @@ struct RigidBackgroundColorView: View {
     }
 }
 
+// Custom button style to apply to each button
+struct RigidButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(Color.gray.opacity(0.7))
+            .foregroundColor(.white)
+            .cornerRadius(20)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            .font(.system(size: 20, weight: .bold))
+    }
+}
+
 // Image displayed below the AppBar, now using custom button styles
 struct RigidHomePageImage: View {
     @Binding var conduitType: Int?
@@ -27,6 +40,20 @@ struct RigidHomePageImage: View {
         ("Rigid, 4\"", 10)
     ]
 
+    func selectConduitType(_ type: Int) {
+        conduitType = type
+        calculateConduitFill()
+    }
+    
+    func calculateConduitFill() {
+        if let type = conduitType, !conduitSize.isEmpty {
+            let key = "\(type)\(conduitSize.trimmingCharacters(in: .whitespaces))"
+            displayMessage = rigidFillMap[key] ?? "No data available for selected size and type."
+        } else {
+            displayMessage = "Please enter all fields"
+        }
+    }
+
     var body: some View {
         ZStack {
             Image("home_page")
@@ -36,9 +63,9 @@ struct RigidHomePageImage: View {
             VStack(alignment: .leading, spacing: 10) {
                 ForEach(conduitOptions, id: \.1) { option in
                     Button(option.0) {
-                        self.conduitType = option.1
+                        selectConduitType(option.1)
                     }
-                    .buttonStyle(ConduitButtonStyle())
+                    .buttonStyle(RigidButtonStyle())
                 }
 
                 TextField("Enter wire size FIRST", text: $conduitSize)
@@ -57,27 +84,13 @@ struct RigidHomePageImage: View {
     }
 }
 
-// Define a custom button style to apply to each button
-struct RigidButtonStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .padding()
-            .background(Color.gray.opacity(0.7))
-            .foregroundColor(.white)
-            .cornerRadius(20)
-            .scaleEffect(configuration.isPressed ? 0.95 : 1)
-            .font(.system(size: 20, weight: .bold))
-    }
-}
-
 // Main ContentView that orchestrates the layout for RigidFill
 struct RigidFillView: View {
     @State private var conduitType: Int?
     @State private var conduitSize: String = ""
     @State private var displayMessage: String = ""
 
-    // Assuming 'emtFillMap' is accessible as a constant dictionary
-    let conduitFillMap = emtFillMap
+    let conduitFillMap: [String: String] = [:] // Ensure this is populated correctly
     
     var body: some View {
         NavigationView {
@@ -161,6 +174,5 @@ struct RigidFillView_Previews: PreviewProvider {
         RigidFillView()
     }
 }
-
 
 
