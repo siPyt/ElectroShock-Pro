@@ -1,6 +1,6 @@
 import SwiftUI
 
-// Background color setup to fill entire safe area, specifically renamed to avoid conflicts
+// Background color setup to fill the entire safe area, ensuring no naming conflicts
 struct NewBackgroundColorView: View {
     var body: some View {
         Color.black
@@ -8,7 +8,7 @@ struct NewBackgroundColorView: View {
     }
 }
 
-// Image displayed below the AppBar, further simplified without any interactive elements
+// Image view modified to include interactive elements for Ohm's Law calculations
 struct NewHomePageImage: View {
     @State private var power: String = ""
     @State private var resistance: String = ""
@@ -40,9 +40,12 @@ struct NewHomePageImage: View {
                 
                 Spacer()
                 
-                // Calculated fields
+                // Calculations for different scenarios
                 if let powerVal = Double(power), let resistanceVal = Double(resistance), volts.isEmpty && amps.isEmpty {
                     Text("Volts: \(sqrt(powerVal * resistanceVal))")
+                        .foregroundColor(.green)
+                        .padding()
+                    Text("Amps: \(sqrt(powerVal / resistanceVal))")
                         .foregroundColor(.green)
                         .padding()
                 }
@@ -51,28 +54,25 @@ struct NewHomePageImage: View {
                     Text("Resistance: \(powerVal / (voltsVal * voltsVal))")
                         .foregroundColor(.green)
                         .padding()
-                }
-                
-                if let powerVal = Double(power), let ampsVal = Double(amps), resistance.isEmpty && volts.isEmpty {
-                    Text("Resistance: \((ampsVal * ampsVal) / powerVal)")
+                    Text("Amps: \(powerVal / voltsVal)")
                         .foregroundColor(.green)
                         .padding()
                 }
                 
-                if let resistanceVal = Double(resistance), let voltsVal = Double(volts), power.isEmpty && amps.isEmpty {
-                    Text("Power: \(resistanceVal * (voltsVal * voltsVal))")
+                if let voltsVal = Double(volts), let resistanceVal = Double(resistance), power.isEmpty && amps.isEmpty {
+                    Text("Power: \(voltsVal * voltsVal / resistanceVal)")
                         .foregroundColor(.green)
                         .padding()
-                }
-                
-                if let resistanceVal = Double(resistance), let ampsVal = Double(amps), power.isEmpty && volts.isEmpty {
-                    Text("Power: \(resistanceVal * (ampsVal * ampsVal))")
+                    Text("Amps: \(voltsVal / resistanceVal)")
                         .foregroundColor(.green)
                         .padding()
                 }
                 
                 if let voltsVal = Double(volts), let ampsVal = Double(amps), power.isEmpty && resistance.isEmpty {
                     Text("Power: \(voltsVal * ampsVal)")
+                        .foregroundColor(.green)
+                        .padding()
+                    Text("Resistance: \(voltsVal / ampsVal)")
                         .foregroundColor(.green)
                         .padding()
                 }
@@ -84,7 +84,7 @@ struct NewHomePageImage: View {
     }
 }
 
-// OhmsLawView using the simplified NewHomePageImage
+// Main view setup using the simplified background and home page image
 struct NewOhmsLawView: View {
     var body: some View {
         ZStack {
@@ -94,11 +94,10 @@ struct NewOhmsLawView: View {
     }
 }
 
-// Preview for OhmsLawView
+// SwiftUI Preview for NewOhmsLawView
 struct NewOhmsLawView_Previews: PreviewProvider {
     static var previews: some View {
         NewOhmsLawView()
     }
 }
-
 
