@@ -60,6 +60,7 @@ struct RigidHomePageImage: View {
                 .resizable()
                 .scaledToFit()
             
+            
             HStack {
                 VStack(alignment: .leading, spacing: 10) {
                     ForEach(conduitOptions[0..<5], id: \.1) { option in
@@ -82,15 +83,15 @@ struct RigidHomePageImage: View {
 
             VStack {
                 Spacer()
-                TextField("Enter wire size FIRST", text: $conduitSize)
+                TextField("Enter wire size FIRST: 10, 12, 2/0, 4/0, 250, 600", text: $conduitSize)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
+                   
 
                 Button("Clear") {
                     self.conduitSize = ""
                 }
                 .buttonStyle(RigidButtonStyle())
-                .padding()
+                
 
                 Text(displayMessage)
                     .font(.title)
