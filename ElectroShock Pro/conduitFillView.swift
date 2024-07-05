@@ -5,14 +5,10 @@ struct ConduitFillView: View {
     @State private var conduitType: Int?
     @State private var conduitSize: String = ""
     @State private var displayMessage: String = ""
-    
-    // Include your conduit fill map here
-    let conduitFillMap: [String: String] = [
-        "114": "12 max conductors",
-        "112": "9 max conductors",
-        // Add all other key-value pairs here...
-    ]
 
+    // Assuming 'emtFillMap' is accessible as a constant dictionary
+    let conduitFillMap = emtFillMap
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -37,7 +33,7 @@ struct ConduitContentStack: View {
     @Binding var conduitType: Int?
     @Binding var conduitSize: String
     @Binding var displayMessage: String
-    let conduitFillMap: [String: String]  // Add the dictionary as a parameter
+    let conduitFillMap: [String: String]
 
     var body: some View {
         VStack {
@@ -127,7 +123,7 @@ struct ConduitHomePageImage: View {
                     .buttonStyle(ConduitButtonStyle())
                 }
 
-                TextField("Enter wire size", text: $conduitSize)
+                TextField("Enter wire size FIRST", text: $conduitSize)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
 
@@ -176,7 +172,6 @@ struct ConduitFillView_Previews: PreviewProvider {
         ConduitFillView()
     }
 }
-
 
 
 
