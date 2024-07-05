@@ -123,9 +123,22 @@ struct ConduitHomePageImage: View {
                     .buttonStyle(ConduitButtonStyle())
                 }
 
-                TextField("Enter wire size FIRST", text: $conduitSize)
+                TextField("Enter wire size FIRST: 12, 2/0, 4/0, 250", text: $conduitSize)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
+
+                HStack {
+                    Button(action: {
+                        // Action for clear button
+                        self.conduitSize = ""
+                    }) {
+                        Text("Clear")
+                            
+                    }
+                    .buttonStyle(ConduitButtonStyle())
+                    
+                    Spacer()
+                }
 
                 Text(displayMessage)
                     .font(.title)
