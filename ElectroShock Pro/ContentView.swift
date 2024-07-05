@@ -53,8 +53,8 @@ struct AppBarContent: View {
             MenuButton()
             Spacer() // This spacer will push the AppBarTitle to the center
             AppBarTitle()
-            Spacer() 
-            Spacer()// Ensures the title stays centered
+            Spacer()
+            Spacer() // Ensures the title stays centered
         }
     }
 }
@@ -97,7 +97,7 @@ struct HomePageImage: View {
                 }
                 HStack(spacing: 10) {
                     ButtonOverlay(text: "Wire", destination: AnyView(WireView()))
-                    ButtonOverlay(text: "EMT", destination: AnyView(EMTView()))
+                    ButtonOverlay(text: "EMT", destination: AnyView(ConduitFillView()))
                 }
                 HStack(spacing: 10) {
                     ButtonOverlay(text: "Rigid", destination: AnyView(RigidView()))
@@ -131,13 +131,14 @@ struct EMTView: View { var body: some View { Text("Details about EMT") } }
 struct RigidView: View { var body: some View { Text("Details about Rigid") } }
 struct XFMRView: View { var body: some View { Text("Details about XFMR") } }
 
+// Assuming you have defined the ConduitFillView somewhere in your project
+
 // Preview for ContentView
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
 
 
 
