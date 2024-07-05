@@ -100,7 +100,7 @@ struct HomePageImage: View {
                     ButtonOverlay(text: "EMT", destination: AnyView(ConduitFillView()))
                 }
                 HStack(spacing: 10) {
-                    ButtonOverlay(text: "Rigid", destination: AnyView(NewRigidView()))
+                    ButtonOverlay(text: "Rigid", destination: AnyView(RigidFillView()))
                     ButtonOverlay(text: "XFMR", destination: AnyView(NewXfmrView()))
                 }
             }
