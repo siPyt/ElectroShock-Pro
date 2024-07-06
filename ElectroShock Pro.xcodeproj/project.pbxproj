@@ -18,6 +18,7 @@
 		E35879482C386A80000AA9D9 /* wireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35879472C386A80000AA9D9 /* wireView.swift */; };
 		E358794A2C386AAD000AA9D9 /* xfmrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35879492C386AAD000AA9D9 /* xfmrView.swift */; };
 		E358794C2C387B23000AA9D9 /* rigidFillMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358794B2C387B23000AA9D9 /* rigidFillMap.swift */; };
+		E358794E2C38C77B000AA9D9 /* wireAmpMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358794D2C38C77B000AA9D9 /* wireAmpMap.swift */; };
 		E38501082C373D8500A7F661 /* emt_fill_map.txt in Resources */ = {isa = PBXBuildFile; fileRef = E38501072C373D8500A7F661 /* emt_fill_map.txt */; };
 		E3B467622C30DE8400BD6AA9 /* conduitFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B467612C30DE8400BD6AA9 /* conduitFillView.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		E35879472C386A80000AA9D9 /* wireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wireView.swift; sourceTree = "<group>"; };
 		E35879492C386AAD000AA9D9 /* xfmrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xfmrView.swift; sourceTree = "<group>"; };
 		E358794B2C387B23000AA9D9 /* rigidFillMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rigidFillMap.swift; sourceTree = "<group>"; };
+		E358794D2C38C77B000AA9D9 /* wireAmpMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wireAmpMap.swift; sourceTree = "<group>"; };
 		E38501072C373D8500A7F661 /* emt_fill_map.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = emt_fill_map.txt; sourceTree = "<group>"; };
 		E3B467612C30DE8400BD6AA9 /* conduitFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conduitFillView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 				E35879472C386A80000AA9D9 /* wireView.swift */,
 				E35879492C386AAD000AA9D9 /* xfmrView.swift */,
 				E358794B2C387B23000AA9D9 /* rigidFillMap.swift */,
+				E358794D2C38C77B000AA9D9 /* wireAmpMap.swift */,
 			);
 			path = "ElectroShock Pro";
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				E35879462C386A4A000AA9D9 /* motorsView.swift in Sources */,
 				E35879402C3862AA000AA9D9 /* emtFillMap.swift in Sources */,
 				E3B467622C30DE8400BD6AA9 /* conduitFillView.swift in Sources */,
+				E358794E2C38C77B000AA9D9 /* wireAmpMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
