@@ -96,7 +96,7 @@ struct HomePageImage: View {
                     ButtonOverlay(text: "Motors", destination: AnyView(NewMotorsView()))
                 }
                 HStack(spacing: 10) {
-                    ButtonOverlay(text: "Wire", destination: AnyView(NewWireView()))
+                    ButtonOverlay(text: "Wire", destination: AnyView(WireView()))
                     ButtonOverlay(text: "EMT", destination: AnyView(ConduitFillView()))
                 }
                 HStack(spacing: 10) {
