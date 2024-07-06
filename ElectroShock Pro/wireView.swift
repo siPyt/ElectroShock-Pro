@@ -137,9 +137,10 @@ struct WireHomePageImage: View {
                 .buttonStyle(ConduitButtonStyle())
 
                 Text(displayMessage)
-                    .font(.title)
+                    .font(.system(size: 34)) // Changed from .title to .system(size: 34)
                     .foregroundColor(Color.green)
                     .padding()
+
                 
                 Spacer()
             }
