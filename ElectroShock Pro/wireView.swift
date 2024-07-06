@@ -89,7 +89,7 @@ struct WireMenuButton: View {
 // Title for the AppBar in WireView
 struct WireAppBarTitle: View {
     var body: some View {
-        Text("Wire Ampacity Calculator")
+        Text("Wire Ampacity")
             .foregroundColor(Color(red: 135/255, green: 135/255, blue: 135/255))
             .font(.system(size: 24, weight: .bold))
     }
