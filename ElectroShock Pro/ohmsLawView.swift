@@ -40,40 +40,48 @@ struct NewHomePageImage: View {
                 
                 Spacer()
                 
-                // Calculations for different scenarios
+                // Display calculations with formatted two decimal places and enlarged font size
                 if let powerVal = Double(power), let resistanceVal = Double(resistance), volts.isEmpty && amps.isEmpty {
-                    Text("Volts: \(sqrt(powerVal * resistanceVal))")
+                    Text("Volts: \(String(format: "%.2f", sqrt(powerVal * resistanceVal)))")
                         .foregroundColor(.green)
+                        .font(.system(size: 34)) // Doubled font size
                         .padding()
-                    Text("Amps: \(sqrt(powerVal / resistanceVal))")
+                    Text("Amps: \(String(format: "%.2f", sqrt(powerVal / resistanceVal)))")
                         .foregroundColor(.green)
+                        .font(.system(size: 34)) // Doubled font size
                         .padding()
                 }
                 
                 if let powerVal = Double(power), let voltsVal = Double(volts), resistance.isEmpty && amps.isEmpty {
-                    Text("Resistance: \(powerVal / (voltsVal * voltsVal))")
+                    Text("Resistance: \(String(format: "%.2f", powerVal / (voltsVal * voltsVal)))")
                         .foregroundColor(.green)
+                        .font(.system(size: 34)) // Doubled font size
                         .padding()
-                    Text("Amps: \(powerVal / voltsVal)")
+                    Text("Amps: \(String(format: "%.2f", powerVal / voltsVal))")
                         .foregroundColor(.green)
+                        .font(.system(size: 34)) // Doubled font size
                         .padding()
                 }
                 
                 if let voltsVal = Double(volts), let resistanceVal = Double(resistance), power.isEmpty && amps.isEmpty {
-                    Text("Power: \(voltsVal * voltsVal / resistanceVal)")
+                    Text("Power: \(String(format: "%.2f", voltsVal * voltsVal / resistanceVal))")
                         .foregroundColor(.green)
+                        .font(.system(size: 34)) // Doubled font size
                         .padding()
-                    Text("Amps: \(voltsVal / resistanceVal)")
+                    Text("Amps: \(String(format: "%.2f", voltsVal / resistanceVal))")
                         .foregroundColor(.green)
+                        .font(.system(size: 34)) // Doubled font size
                         .padding()
                 }
                 
                 if let voltsVal = Double(volts), let ampsVal = Double(amps), power.isEmpty && resistance.isEmpty {
-                    Text("Power: \(voltsVal * ampsVal)")
+                    Text("Power: \(String(format: "%.2f", voltsVal * ampsVal))")
                         .foregroundColor(.green)
+                        .font(.system(size: 34)) // Doubled font size
                         .padding()
-                    Text("Resistance: \(voltsVal / ampsVal)")
+                    Text("Resistance: \(String(format: "%.2f", voltsVal / ampsVal))")
                         .foregroundColor(.green)
+                        .font(.system(size: 34)) // Doubled font size
                         .padding()
                 }
                 
