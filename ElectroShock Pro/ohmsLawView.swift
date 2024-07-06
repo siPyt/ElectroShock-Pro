@@ -38,6 +38,23 @@ struct NewHomePageImage: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 
+                // Clear Button
+                Button(action: {
+                    // Clear all text fields
+                    self.power = ""
+                    self.resistance = ""
+                    self.volts = ""
+                    self.amps = ""
+                }) {
+                    Text("Clear")
+                        .foregroundColor(.white)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding()
+                        .background(Color.gray)
+                        .cornerRadius(10)
+                }
+                .padding(.bottom, 20)
+
                 Spacer()
                 
                 // Display calculations with formatted two decimal places and enlarged font size
