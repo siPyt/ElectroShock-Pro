@@ -6,16 +6,14 @@ struct MotorsView: View {
     @State private var motorParameters: String = ""
     @State private var calculationResult: String = ""
 
-    // Assuming 'motorCalcMap' is accessible as a constant dictionary
-    let motorMap = [
-        motorCalcMap
-    ]
+    // This assumes motorCalcMap is imported and accessible here as a dictionary
+    // motorCalcMap should be declared as [String: Double] or similar in the 'motorCalcMap.swift' file
     
     var body: some View {
         NavigationView {
             ZStack {
                 MotorsBackgroundColorView()
-                MotorsContentStack(motorType: $motorType, motorParameters: $motorParameters, calculationResult: $calculationResult, motorCalcMap: motorCalcMap)
+                MotorsContentStack(motorType: $motorType, motorParameters: $motorParameters, calculationResult: $calculationResult)
             }
             .navigationBarHidden(true)
         }
@@ -35,14 +33,13 @@ struct MotorsContentStack: View {
     @Binding var motorType: Int?
     @Binding var motorParameters: String
     @Binding var calculationResult: String
-    let motorCalcMap: [String: String]
 
     var body: some View {
         VStack {
             MotorsAppBarView()
                 .background(Color.black)
                 .edgesIgnoringSafeArea(.top)
-            MotorsHomePageImage(motorType: $motorType, motorParameters: $motorParameters, calculationResult: $calculationResult, motorCalcMap: motorCalcMap)
+            MotorsHomePageImage(motorType: $motorType, motorParameters: $motorParameters, calculationResult: $calculationResult)
             Spacer()
         }
     }
@@ -100,7 +97,6 @@ struct MotorsHomePageImage: View {
     @Binding var motorType: Int?
     @Binding var motorParameters: String
     @Binding var calculationResult: String
-    let motorCalcMap: [String: String]
 
     let motorOptions = [
         ("AC single phase, 115V", 1),
@@ -125,7 +121,7 @@ struct MotorsHomePageImage: View {
                     .buttonStyle(MotorButtonStyle())
                 }
 
-                TextField("Enter Horse Power: 1.25, 1.5, 2, 3.25", text: $motorParameters)
+                TextField("Enter Horse Power: .25, .50, .75, 1.25, 1.5", text: $motorParameters)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
 
