@@ -101,7 +101,7 @@ struct HomePageImage: View {
                 }
                 HStack(spacing: 10) {
                     ButtonOverlay(text: "Rigid", destination: AnyView(RigidFillView()))
-                    ButtonOverlay(text: "XFMR", destination: AnyView(NewXfmrView()))
+                    
                 }
             }
         }
