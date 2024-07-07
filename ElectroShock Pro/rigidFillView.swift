@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 // Background color setup to fill entire safe area, specifically renamed to avoid conflicts
 struct RigidBackgroundColorView: View {
@@ -60,43 +61,49 @@ struct RigidHomePageImage: View {
                 .resizable()
                 .scaledToFit()
             
-            
-            HStack {
-                VStack(alignment: .leading, spacing: 10) {
-                    ForEach(conduitOptions[0..<5], id: \.1) { option in
-                        Button(option.0) {
-                            selectConduitType(option.1)
-                        }
-                        .buttonStyle(RigidButtonStyle())
-                    }
-                }
-                VStack(alignment: .leading, spacing: 10) {
-                    ForEach(conduitOptions[5...], id: \.1) { option in
-                        Button(option.0) {
-                            selectConduitType(option.1)
-                        }
-                        .buttonStyle(RigidButtonStyle())
-                    }
-                }
-            }
-            .padding()
-
             VStack {
+                ForEach(conduitOptions.indices, id: \.self) { index in
+                    if index % 2 == 0 || index == 0 {
+                        HStack {
+                            if index < conduitOptions.count {
+                                Button(conduitOptions[index].0) {
+                                    selectConduitType(conduitOptions[index].1)
+                                }
+                                .buttonStyle(RigidButtonStyle())
+                            }
+                            if index + 1 < conduitOptions.count {
+                                Button(conduitOptions[index + 1].0) {
+                                    selectConduitType(conduitOptions[index + 1].1)
+                                }
+                                .buttonStyle(RigidButtonStyle())
+                            }
+                        }
+                    }
+                }
                 Spacer()
                 TextField("Enter wire size FIRST: 10, 12, 2/0, 4/0, 250, 600", text: $conduitSize)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                   
+                    .onReceive(Just(conduitSize)) { newValue in
+                        if newValue.isEmpty {
+                            displayMessage = "" // Clear message when text field is empty
+                        }
+                    }
+                    .padding()
+
 
                 Button("Clear") {
-                    self.conduitSize = ""
+                    conduitSize = ""
+                    displayMessage = "" // Also clear the display message when the button is pressed
                 }
                 .buttonStyle(RigidButtonStyle())
-                
+                .padding()
 
-                Text(displayMessage)
-                    .font(.title)
-                    .foregroundColor(Color.green)
-                    .padding()
+                if !displayMessage.isEmpty {
+                    Text(displayMessage)
+                        .font(.title)
+                        .foregroundColor(Color.green)
+                        .padding()
+                }
             }
         }
     }
@@ -114,79 +121,14 @@ struct RigidFillView: View {
         NavigationView {
             ZStack {
                 RigidBackgroundColorView()
-                RigidContentStack(conduitType: $conduitType, conduitSize: $conduitSize, displayMessage: $displayMessage, conduitFillMap: conduitFillMap)
+                RigidHomePageImage(conduitType: $conduitType, conduitSize: $conduitSize, displayMessage: $displayMessage)
             }
             .navigationBarHidden(true)
         }
     }
 }
 
-// VStack that holds the app's main content for RigidFill
-struct RigidContentStack: View {
-    @Binding var conduitType: Int?
-    @Binding var conduitSize: String
-    @Binding var displayMessage: String
-    let conduitFillMap: [String: String]
-
-    var body: some View {
-        VStack {
-            RigidAppBarView()
-                .background(Color.black)
-                .edgesIgnoringSafeArea(.top)
-            RigidHomePageImage(conduitType: $conduitType, conduitSize: $conduitSize, displayMessage: $displayMessage)
-            Spacer()
-        }
-    }
-}
-
-// Custom AppBar at the top of the app for RigidFill
-struct RigidAppBarView: View {
-    var body: some View {
-        VStack {
-            RigidAppBarContent()
-                .padding(.top, 35)
-                .padding(.horizontal)
-        }
-        .background(Color.black)
-    }
-}
-
-// Content within the AppBar for RigidFill
-struct RigidAppBarContent: View {
-    var body: some View {
-        HStack {
-            RigidMenuButton()
-            Spacer() // This spacer will push the AppBarTitle to the center
-            RigidAppBarTitle()
-            Spacer() // Ensures the title stays centered
-            Spacer()
-        }
-    }
-}
-
-// Reusable Menu Button component for RigidFill
-struct RigidMenuButton: View {
-    var body: some View {
-        Button(action: {
-            // Action for the menu button
-        }) {
-            Image(systemName: "line.horizontal.3")
-                .foregroundColor(.white)
-                .padding()
-        }
-    }
-}
-
-// Title for the AppBar in RigidFill
-struct RigidAppBarTitle: View {
-    var body: some View {
-        Text("Electro_Shock Pro")
-            .foregroundColor(Color(red: 135/255, green: 135/255, blue: 135/255))
-            .font(.system(size: 24, weight: .bold))
-    }
-}
-
-// Preview for RigidFillView
+// Preview provider for SwiftUI previews
 struct RigidFillView_Previews: PreviewProvider {
     static var previews: some View {
         RigidFillView()

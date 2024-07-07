@@ -1,3 +1,16 @@
+                Button("Clear") {
+                    self.conduitSize = ""
+                }
+                .buttonStyle(PlainButtonStyle()) // Remove any existing style first if needed
+                .background(Color.black) // Black background
+                .foregroundColor(.white) // White text
+                .cornerRadius(20) // Rounded corners
+                .padding() // Padding around the text
+                .font(.system(size: 30, weight: .bold)) // Font settings
+
+
+
+
 let conduitFillMap: [String: String] = [
     "114": "12 max conductors",
     "112": "9 max conductors",
