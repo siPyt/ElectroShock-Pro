@@ -93,7 +93,7 @@ struct HomePageImage: View {
             VStack(spacing: 10) {
                 HStack(spacing: 10) {
                     ButtonOverlay(text: "Ohms Law", destination: AnyView(NewOhmsLawView()))
-                    ButtonOverlay(text: "Motors", destination: AnyView(NewMotorsView()))
+                    ButtonOverlay(text: "Motors", destination: AnyView(MotorsView()))
                 }
                 HStack(spacing: 10) {
                     ButtonOverlay(text: "Wire", destination: AnyView(WireView()))
